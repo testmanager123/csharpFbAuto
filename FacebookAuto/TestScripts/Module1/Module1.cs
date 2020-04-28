@@ -21,7 +21,7 @@ namespace FacebookAuto.TestScripts.Module1
             fbHome.fbReg();
         }
 
-        [Test, Order(2)]
+        [Test, Order(2), Category("thisIsOrder")]
         public void fbForgotPwd()
         {
             Thread.Sleep(5000);
@@ -35,7 +35,8 @@ namespace FacebookAuto.TestScripts.Module1
         public void general()
         {
             Thread.Sleep(5000);
-            String bT= driver.Title;            
+            String bT= driver.Title;
+            Console.WriteLine("this is hamsini");           
         }
 
         [Test, Order(0)]
