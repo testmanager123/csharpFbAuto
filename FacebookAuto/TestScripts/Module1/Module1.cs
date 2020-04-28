@@ -36,7 +36,7 @@ namespace FacebookAuto.TestScripts.Module1
         {
             Thread.Sleep(5000);
             String bT= driver.Title;
-            Console.WriteLine("this is hamsini");           
+            
         }
 
         [Test, Order(0)]
