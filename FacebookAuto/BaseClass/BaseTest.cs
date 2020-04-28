@@ -12,7 +12,7 @@ namespace FacebookAuto.BaseClass
 {
     public class BaseTest
     {
-        IWebDriver driver;
+        public IWebDriver driver;
         [SetUp]
         public void Open()
         {

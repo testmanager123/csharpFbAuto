@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,14 @@ namespace FacebookAuto.PageObjects
 {
     class FBHomePageObjects
     {
+        public IWebDriver driver;
+
+        public FBHomePageObjects(IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
+
+        }
         //define objects 
         //firstname
         [FindsBy(How =How.Name, Using ="firstname")]
@@ -34,9 +43,21 @@ namespace FacebookAuto.PageObjects
 
         //forgot Pwd
         [FindsBy(How = How.LinkText, Using = "Forgotten account?")]
-        public IWebElement forgotPwdOnFBHome { get; set; }
+        public IWebElement forgotPwdLinkOnFBHome { get; set; }
 
 
+        public void fbReg()
+        {
+            firstNameOnFBHome.SendKeys("tester");
+            lastNameOnFBHome.SendKeys("developer");
+            new SelectElement(monthOnFBHome).SelectByText("Feb");
+        }
+
+        public void forgotPwd()
+        {
+            forgotPwdLinkOnFBHome.Click();
+        }
 
     }
 }
+
