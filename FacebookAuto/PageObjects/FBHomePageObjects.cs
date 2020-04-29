@@ -12,6 +12,7 @@ namespace FacebookAuto.PageObjects
     class FBHomePageObjects
     {
         public IWebDriver driver;
+        
 
         public FBHomePageObjects(IWebDriver driver)
         {
@@ -19,6 +20,7 @@ namespace FacebookAuto.PageObjects
             PageFactory.InitElements(driver, this);
 
         }
+        
         //define objects 
         //firstname
         [FindsBy(How =How.Name, Using ="firstname")]
@@ -46,6 +48,8 @@ namespace FacebookAuto.PageObjects
         public IWebElement forgotPwdLinkOnFBHome { get; set; }
 
 
+
+        ///define methods
         public void fbReg()
         {
             firstNameOnFBHome.SendKeys("tester");

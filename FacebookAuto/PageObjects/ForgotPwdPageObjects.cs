@@ -28,7 +28,8 @@ namespace FacebookAuto.PageObjects
         public IWebElement searchButton { get; set; }
 
 
-
+        ///define method
+        
         ///recovery email process
         public void recoveryEmailProcess()
         {

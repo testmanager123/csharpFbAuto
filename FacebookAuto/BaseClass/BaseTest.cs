@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -12,6 +14,20 @@ namespace FacebookAuto.BaseClass
 {
     public class BaseTest
     {
+        public ExtentReports extent = null;
+        public ExtentTest test = null;
+        [OneTimeSetUp]
+        public void ExtentStart()
+        {
+            extent = new ExtentReports();
+            var htmlReporter = new ExtentHtmlReporter(@"C:\Users\Srinivas\Desktop\CSharpFramework\FacebookAuto\FacebookAuto\Results\FBAutomation.html");
+            extent.AttachReporter(htmlReporter);
+        }
+        [OneTimeTearDown]
+        public void ExtentClose()
+        {
+            extent.Flush();
+        }
         public IWebDriver driver;
         [SetUp]
         public void Open()
