@@ -19,7 +19,7 @@ namespace FacebookAuto.TestScripts.SmokeTest
            // test.Info("method started");
             var fbHome = new FBHomePageObjects(driver);
             fbHome.fbReg();
-            //test.Info("execution completed");
+           // test.Info("execution completed");
        
         }
     }

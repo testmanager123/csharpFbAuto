@@ -16,7 +16,7 @@ namespace FacebookAuto.TestScripts.Module1
         [Test, Order(3)]
         public void TestMethod1()
         {
-            Console.WriteLine("test started");
+            //Console.WriteLine("test started");
             var fbHome = new FBHomePageObjects(driver);
             fbHome.fbReg();
         }
@@ -39,12 +39,15 @@ namespace FacebookAuto.TestScripts.Module1
             
         }
 
-        [Test, Order(0)]
+        [Test, Order(4)]
         public void generalURL()
         {
             Thread.Sleep(5000);
             String bURL = driver.Url;
-
+            var fbH = new FBHomePageObjects(driver);
+            fbH.forgotPwd();
+            var rec = new ForgotPwdPageObjects(driver);
+            rec.recoveryEmailProcess();
         }
 
     }
