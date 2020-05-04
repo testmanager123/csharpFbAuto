@@ -1,6 +1,8 @@
-﻿using FacebookAuto.BaseClass;
+﻿using AventStack.ExtentReports;
+using FacebookAuto.BaseClass;
 using FacebookAuto.PageObjects;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +15,23 @@ namespace FacebookAuto.TestScripts.Module1
     [TestFixture]
     public class Module1 : BaseTest
     {
+       
         [Test, Order(3)]
         public void TestMethod1()
         {
+            test = extent.CreateTest("TestMethod1").Info("TestMethod1 is running");
             //Console.WriteLine("test started");
+            test.Log(Status.Info, "execution start of fbReg");
             var fbHome = new FBHomePageObjects(driver);
             fbHome.fbReg();
+            test.Log(Status.Info, "registereed");
+            test.Log(Status.Pass, "my test is passed");
         }
 
         [Test, Order(2), Category("thisIsOrder")]
         public void fbForgotPwd()
         {
+            test = extent.CreateTest("fbForgotPwd").Info("new test execution start");
             Thread.Sleep(5000);
             var fbHome = new FBHomePageObjects(driver);
             fbHome.forgotPwd();

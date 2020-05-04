@@ -113,12 +113,15 @@
   <ItemGroup>
     <Compile Include="BaseClass\BaseTest.cs" />
     <Compile Include="BaseClass\ExtentReport.cs" />
+    <Compile Include="Helpers\VerificationHelpers.cs" />
+    <Compile Include="MySampleTestReport.cs" />
     <Compile Include="PageObjects\FBHomePageObjects.cs" />
     <Compile Include="PageObjects\ForgotPwdPageObjects.cs" />
     <Compile Include="Programs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestScripts\Module1\Module1.cs" />
     <Compile Include="TestScripts\Module1\MyReportTest.cs" />
+    <Compile Include="TestScripts\ObjectsVerification.cs" />
     <Compile Include="TestScripts\SmokeTest\RegistrationFB.cs" />
   </ItemGroup>
   <ItemGroup>

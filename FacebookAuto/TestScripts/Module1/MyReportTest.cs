@@ -13,15 +13,18 @@ using System.Threading.Tasks;
 namespace FacebookAuto.TestScripts.Module1
 {
     [TestFixture]
-    public class MyReportTest : BaseTest
-    { 
-    
-        
+    public class MyReportTest : BaseTest 
+    {      
         [Test]
         public void myTestRun()
         {
+            var test = extent.CreateTest("nytestRun");
+
+            test.Info("test start");
             var hfb = new FBHomePageObjects(driver);
             hfb.fbReg();
+            test.Info("test completed");
+            test.Pass("properly executed");
 
            
         }

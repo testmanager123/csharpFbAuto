@@ -15,49 +15,43 @@ using System.Threading.Tasks;
 
 namespace FacebookAuto.BaseClass
 {
+    [TestFixture]
     public class BaseTest
     {
-      /*  public ExtentReports extent = null;
+        public ExtentReports extent = null;
         public ExtentTest test = null;
+        public IWebDriver driver = null;
         [OneTimeSetUp]
-        public void ExtentStart()
+        public void extentStart()
         {
             extent = new ExtentReports();
 
-
-            string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory + @"../../../").FullName;
-            directory = directory + "\\Results\\";
-            DirectoryInfo path = Directory.GetParent(directory).CreateSubdirectory("Reports");
-            
-            var htmlReporter = new ExtentHtmlReporter(path + "\\Extent.html");
-            extent.AttachReporter(htmlReporter);
+            string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory + @"../../").FullName;
+            String path = directory + "\\Results\\Reports\\myReport.html";
+            var htmlReport = new ExtentHtmlReporter(path);
+            extent.AttachReporter(htmlReport);
         }
 
         [OneTimeTearDown]
-        public void ExtentClose()
+        public void extentClose()
         {
             extent.Flush();
-        }*/
+        }
 
-        public IWebDriver driver;
         [SetUp]
-        public void Open()
+        public void OpenApp()
         {
-            driver = new ChromeDriver();  
-            // driver = new InternetExplorerDriver();
-            //driver = new FirefoxDriver();
+            driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://www.facebook.com");
-            Thread.Sleep(5000);
         }
 
         [TearDown]
-        public void Close()
+        public void CloseApp()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             driver.Close();
             driver.Quit();
         }
-
     }
 }

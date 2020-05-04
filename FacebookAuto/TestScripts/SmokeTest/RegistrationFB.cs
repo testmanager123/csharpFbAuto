@@ -16,7 +16,7 @@ namespace FacebookAuto.TestScripts.SmokeTest
         [Test]
         public void MyFBReg()
         {
-           // test.Info("method started");
+           //test.Info("method started");
             var fbHome = new FBHomePageObjects(driver);
             fbHome.fbReg();
            // test.Info("execution completed");
