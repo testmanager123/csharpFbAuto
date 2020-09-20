@@ -18,17 +18,22 @@ namespace FacebookAuto.BaseClass
     [TestFixture]
     public class BaseTest
     {
-        public ExtentReports extent = null;
+        public ExtentReports extent=null;
         public ExtentTest test = null;
+        public ExtentTest node = null;
+
         public IWebDriver driver = null;
         [OneTimeSetUp]
         public void extentStart()
         {
-            extent = new ExtentReports();
 
+            //Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("de-AT");
+            //extent = new ExtentReports();
+            
             string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory + @"../../").FullName;
             String path = directory + "\\Results\\Reports\\myReport.html";
-            var htmlReport = new ExtentHtmlReporter(path);
+            ExtentHtmlReporter htmlReport = new ExtentHtmlReporter(path);
+            extent = new ExtentReports();   
             extent.AttachReporter(htmlReport);
         }
 
@@ -44,6 +49,7 @@ namespace FacebookAuto.BaseClass
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://www.facebook.com");
+            //Thread.Sleep(60000);
         }
 
         [TearDown]
@@ -53,5 +59,29 @@ namespace FacebookAuto.BaseClass
             driver.Close();
             driver.Quit();
         }
+
+        public static string GetScreenShot(IWebDriver driver, string screenShotName)
+        {
+            ITakesScreenshot ts = (ITakesScreenshot)driver;
+            Screenshot screenshot = ts.GetScreenshot();
+            ////screenshot name filename
+            String filename = DateTime.Now.ToString("dddd-dd-MMMM-yyyy-HH-mm-ss-");
+
+            string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory + @"../../").FullName;
+            String path = directory + "\\ScreenShot\\ErrorScreenshots\\" + filename+screenShotName + ".png";
+            string localpath = new Uri(path).LocalPath;
+            screenshot.SaveAsFile(localpath, ScreenshotImageFormat.Png);
+            return localpath;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+

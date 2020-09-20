@@ -19,7 +19,7 @@ namespace FacebookAuto.BaseClass
         public class ExtentReports
         {
             //Instance of extents reports
-            public static ExtentReports extent;
+           public static ExtentReports extent;
             public static ExtentTest test;
             public IWebDriver driver;
 
@@ -41,8 +41,8 @@ namespace FacebookAuto.BaseClass
                 extent = new ExtentReports();
                 //Add QA system info to html report
                 extent.AddSystemInfo("Host Name", "YourHostName");  
-                var htmlReport = new ExtentHtmlReporter(reportPath);
-                extent.AttachReporter(htmlReport);
+                //var htmlReport = new ExtentHtmlReporter(reportPath);
+                //extent.AttachReporter(htmlReport);
                 //Adding config.xml file
                 //extent.LoadConfig(projectPath + "Extent-Config.xml"); //Get the config.xml file from http://extentreports.com
 
@@ -67,11 +67,11 @@ namespace FacebookAuto.BaseClass
                 var stackTrace = " " + TestContext.CurrentContext.Result.StackTrace + " ";
                 var errorMessage = TestContext.CurrentContext.Result.Message;
 
-               /* if (status == TestStatus.Failed)
+            /*    if (status == TestStatus.Failed)
                 {
                     test.Log(LogStatus.Fail, status + errorMessage);
-                }
-                */
+                }*/
+                
                 //End test report
                 extent.EndTest(test);
                 driver.Quit();

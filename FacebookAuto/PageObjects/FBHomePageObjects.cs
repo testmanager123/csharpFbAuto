@@ -15,12 +15,10 @@ namespace FacebookAuto.PageObjects
     {
         public IWebDriver driver;
         
-
         public FBHomePageObjects(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
-
         }
         
         //define objects 
@@ -64,14 +62,8 @@ namespace FacebookAuto.PageObjects
 
 
         ///define methods
-        public void fbReg()
-        {            
-            firstNameOnFBHome.SendKeys("tester");
-            lastNameOnFBHome.SendKeys("developer");
-            new SelectElement(monthOnFBHome).SelectByText("Feb");
-        }
-
-        public void forgotPwd()
+        /////Click on forgot pwd link
+        public void ClickOnforgotPwd()
         {
             forgotPwdLinkOnFBHome.Click();
         }
