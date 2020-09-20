@@ -71,6 +71,8 @@ namespace FacebookAuto.TestScripts.Module1
                 String bT = driver.Title;
                 test.Log(Status.Info, bT);
                 test.Log(Status.Info, "it updated");
+                test.Log(Status.Info, "it updated with shyam");
+
                 test.Log(Status.Pass, "Title properly captured");
                 
             }
